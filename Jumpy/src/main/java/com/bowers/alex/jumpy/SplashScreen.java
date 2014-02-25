@@ -1,18 +1,17 @@
 package com.bowers.alex.jumpy;
 
 import android.app.Activity;
-import android.app.NotificationManager;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
-import android.view.animation.TranslateAnimation;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class SplashScreen extends Activity {
@@ -48,7 +47,7 @@ public class SplashScreen extends Activity {
         fadeInLate.setStartOffset(2000);
         fadeInLate.setFillAfter(true);
         fadeInMenu.setDuration(1000);
-        fadeInMenu.setStartOffset(4000);
+        fadeInMenu.setStartOffset(3200);
         fadeInMenu.setFillAfter(true);
 
         titleAnimations.addAnimation(fadeIn);
@@ -65,6 +64,9 @@ public class SplashScreen extends Activity {
         super.onResume();
         setFlags();
     }
+    public void onDestroy() {
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+    }
 
     private void setFlags() {
         View decorView = getWindow().getDecorView();
@@ -78,10 +80,29 @@ public class SplashScreen extends Activity {
 
 
         decorView.setSystemUiVisibility(uiOptions);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         decorView.requestLayout();
+    }
+
+    public void onClickSinglePlayer(View view) {
+        setFlags();
+        Intent intent = new Intent(this, SinglePlayerActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClickMultiPlayer(View view) {
+        Toast.makeText(this, "Sorry. This action is not available yet.", Toast.LENGTH_LONG).show();
+    }
+
+    public void onClickLeaderboard(View view) {
+        Toast.makeText(this, "Sorry. This action is not available yet.", Toast.LENGTH_LONG).show();
+    }
+
+    public void onClickAchievements(View view) {
+        Toast.makeText(this, "Sorry. This action is not available yet.", Toast.LENGTH_LONG).show();
     }
 
 }

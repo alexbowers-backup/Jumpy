@@ -1,4 +1,5 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -13,7 +14,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
+        android:textSize="35sp"
         android:text="@string/app_name"
         android:id="@+id/AppNameSplash"
         android:textAllCaps="true"
@@ -57,39 +58,56 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/main_menu_classic_game"
-            android:id="@+id/MainMenuClassicGame"
+            android:text="@string/main_menu_single_player"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:id="@+id/MainMenuSinglePlayer"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:onClick="onClickSinglePlayer"
+            android:clickable="true" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/main_menu_modern_game"
-            android:id="@+id/MainMenuModernGame"
-            android:layout_below="@+id/MainMenuClassicGame"
-            android:layout_alignLeft="@+id/textView"
-            android:layout_alignStart="@+id/textView" />
+            android:text="@string/main_menu_multi_player"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:id="@+id/MainMenuMultiPlayer"
+            android:layout_below="@+id/MainMenuSinglePlayer"
+            android:onClick="onClickMultiPlayer"
+            android:layout_centerHorizontal="true"
+            android:clickable="true"
+            android:gravity="center_horizontal" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/main_menu_leader_board"
+            android:textAllCaps="true"
+            android:textStyle="bold"
             android:id="@+id/MainMenuLeaderboard"
-            android:layout_below="@+id/MainMenuModernGame"
-            android:layout_alignLeft="@+id/textView2"
-            android:layout_alignStart="@+id/textView2" />
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/MainMenuMultiPlayer"
+            android:onClick="onClickLeaderboard"
+            android:clickable="true"
+            android:gravity="center_horizontal" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/main_menu_achievements"
+            android:textAllCaps="true"
+            android:textStyle="bold"
             android:id="@+id/MainMenuAchievements"
-            android:layout_below="@+id/textView3"
-            android:layout_alignLeft="@+id/textView3"
-            android:layout_alignStart="@+id/textView3" />
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/MainMenuLeaderboard"
+            android:onClick="onClickAchievements"
+            android:clickable="true"
+            android:gravity="center_horizontal"
+            android:textColorHighlight="@color/purple" />
     </RelativeLayout>
 </RelativeLayout>

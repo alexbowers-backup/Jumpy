@@ -5,10 +5,12 @@
     <string name="created_by">By Alex Bowers</string>
     <string name="version_no">Version 0.0.1</string>
     <string name="action_settings">Settings</string>
-
-    <string name="main_menu_classic_game">Classic Mode</string>
-    <string name="main_menu_modern_game">Modern Mode</string>
+    <string name="main_menu_single_player">Single Player</string>
+    <string name="main_menu_multi_player">Multi Player</string>
     <string name="main_menu_leader_board">Leaderboard</string>
     <string name="main_menu_achievements">Achievements</string>
+    <string name="title_activity_single_player">SinglePlayerActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="single_player_subtitle">Single Player</string>
 
 </resources>
