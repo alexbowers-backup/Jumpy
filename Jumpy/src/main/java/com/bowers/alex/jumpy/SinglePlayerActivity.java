@@ -4,14 +4,20 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
 
 public class SinglePlayerActivity extends Activity {
+
+    ImageView back_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setFlags();
         setContentView(R.layout.activity_single_player_menu);
+
+
+        back_button = (ImageView) findViewById(R.id.SinglePlayerLevelSelectBackArrow);
     }
 
     private void setFlags() {
@@ -31,6 +37,11 @@ public class SinglePlayerActivity extends Activity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         decorView.requestLayout();
+    }
+
+    public void onClickBackButton(View view) {
+        back_button.setImageResource(R.drawable.back_arrow_active);
+        finish();
     }
 
 }

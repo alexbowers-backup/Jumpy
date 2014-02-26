@@ -15,17 +15,17 @@ import android.widget.Toast;
 
 
 public class SplashScreen extends Activity {
-    View     SplashScreenView;
-    TextView title;
-    TextView version;
-    TextView created_by;
-    RelativeLayout MainMenu;
+    View            SplashScreenView;
+    TextView        title;
+    TextView        version;
+    TextView        created_by;
+    RelativeLayout  MainMenu;
 
 
-    final AlphaAnimation fadeIn = new AlphaAnimation(0.0f, 1.0f);
-    final AlphaAnimation fadeInLate = new AlphaAnimation(0.0f, 1.0f);
-    final AlphaAnimation fadeInMenu = new AlphaAnimation(0.0f, 1.0f);
-    final AnimationSet titleAnimations = new AnimationSet(false);
+    final AlphaAnimation    fadeIn = new AlphaAnimation(0.0f, 1.0f);
+    final AlphaAnimation    fadeInLate = new AlphaAnimation(0.0f, 1.0f);
+    final AlphaAnimation    fadeInMenu = new AlphaAnimation(0.0f, 1.0f);
+    final AnimationSet      titleAnimations = new AnimationSet(false);
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,8 +64,22 @@ public class SplashScreen extends Activity {
         super.onResume();
         setFlags();
     }
-    public void onDestroy() {
+
+    @Override
+    public void onPause() {
+        super.onPause();
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+    }
+
+    @Override
+    public void onBackPressed() {
+        onPause();
     }
 
     private void setFlags() {
